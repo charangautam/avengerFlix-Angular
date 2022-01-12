@@ -7,31 +7,33 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 // import to display notification back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
-  selector: 'app-user-registration-form',
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss']
+  selector: 'app-user-login-form',
+  templateUrl: './user-login-form.component.html',
+  styleUrls: ['./user-login-form.component.scss']
 })
 
-export class UserRegistrationFormComponent implements OnInit {
+export class UserLoginFormComponent implements OnInit {
 
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' }
+  @Input() userData = { Username: '', Password: '' }
 
   /**
-   * * Called when creating an instance of the class
-   * @param fetchApiData
-   * @param dialogRef
-   * @param snackBar
-  */
+  * * Called when creating an instance of the class
+  * @param fetchApiData
+  * @param dialogRef
+  * @param snackBar
+ */
 
   constructor(
     public fetchApiData: UserRegistrationService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
+    public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
   }
+
 
   // This is the function responsible for sending the form inputs to the backend
   /**
@@ -39,17 +41,17 @@ export class UserRegistrationFormComponent implements OnInit {
    * @returns alert indicating a successful registration or an error
   */
 
-  registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
+  loginUser(): void {
+    this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       // logic for successful user registration
       console.log(result)
       this.dialogRef.close() // close modal on success 
-      this.snackBar.open('User registration successful', 'OK', {
+      this.snackBar.open('Logged in successfully', 'OK', {
         duration: 4000
       })
     }, (result) => {
       console.log(result);
-      this.snackBar.open("Username already exists. Please try a different username", 'OK', {
+      this.snackBar.open("Incorrect information, please try again", 'OK', {
         duration: 4000
       });
     })
