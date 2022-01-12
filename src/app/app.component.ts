@@ -21,14 +21,14 @@ export class AppComponent {
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       // assigning the dialog a width
-      width: '330px'
+      width: '300px'
     })
   }
 
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       // assigning the dialog a width
-      width: '330px'
+      width: '300px'
     })
   }
 }

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 // import to close dialog on success 
 import { MatDialogRef } from '@angular/material/dialog';
 // import API calls from backend 
-import { UserRegistrationService } from '../fetch-api-data.service';
+import { FetchApiDataService } from '../fetch-api-data.service';
 // import to display notification back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -25,7 +25,7 @@ export class UserRegistrationFormComponent implements OnInit {
   */
 
   constructor(
-    public fetchApiData: UserRegistrationService,
+    public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar
   ) { }
