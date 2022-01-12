@@ -19,7 +19,8 @@ export class AppComponent {
   // function that will open the dialog when the register button is clicked
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
-      width: '480px'
+      // assigning the dialog a width
+      width: '330px'
     })
   }
 }

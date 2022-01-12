@@ -44,12 +44,12 @@ export class UserRegistrationFormComponent implements OnInit {
       console.log(result)
       this.dialogRef.close() // close modal on success 
       this.snackBar.open('User registration successful', 'OK', {
-        duration: 2000
+        duration: 4000
       })
     }, (result) => {
       console.log(result);
       this.snackBar.open("Username already exists. Please try a different username", 'OK', {
-        duration: 2000
+        duration: 4000
       });
     })
   }
