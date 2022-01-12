@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 // embedded components
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @Component({
   selector: 'app-root',
@@ -30,5 +31,11 @@ export class AppComponent {
       // assigning the dialog a width
       width: '300px'
     })
+  }
+
+  openMoviesDialog(): void {
+    this.dialog.open(MovieCardComponent, {
+      width: '500px'
+    });
   }
 }
