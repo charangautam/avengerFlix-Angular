@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
 
-import { MatDialog } from '@angular/material/dialog';
-
-// embedded components
-import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,27 +8,4 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 
 export class AppComponent {
   title = 'avengersFlix-Angular';
-
-  constructor(public dialog: MatDialog) { }
-
-  // function that will open the dialog when the register button is clicked
-  openUserRegistrationDialog(): void {
-    this.dialog.open(UserRegistrationFormComponent, {
-      // assigning the dialog a width
-      width: '300px'
-    })
-  }
-
-  openUserLoginDialog(): void {
-    this.dialog.open(UserLoginFormComponent, {
-      // assigning the dialog a width
-      width: '300px'
-    })
-  }
-
-  openMoviesDialog(): void {
-    this.dialog.open(MovieCardComponent, {
-      width: '500px'
-    });
-  }
 }
