@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // embedded components
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 
 
 @Component({
@@ -36,6 +37,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  openDetailsDialog(Title: string, Description: string): void {
+    this.dialog.open(DetailsDialogComponent, {
+      data: { Title, Description }
+    })
+  }
+
   openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(GenreDialogComponent, {
       data: { Name, Description }
@@ -44,7 +51,7 @@ export class MovieCardComponent implements OnInit {
 
   openDirectorDialog(Name: string, Bio: string, Age: string): void {
     this.dialog.open(DirectorDialogComponent, {
-      data: { Name, Bio, Age },
+      data: { Name, Bio, Age }
     })
   }
 

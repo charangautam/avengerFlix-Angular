@@ -26,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
 import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
+import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     GenreDialogComponent,
     DirectorDialogComponent,
-    MovieDetailsDialogComponent
+    DetailsDialogComponent
   ],
   imports: [
     BrowserModule,
