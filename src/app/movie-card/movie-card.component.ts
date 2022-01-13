@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 // embedded components
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
+import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
+import { MovieDetailsDialogComponent } from '../movie-details-dialog/movie-details-dialog.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -38,6 +40,16 @@ export class MovieCardComponent implements OnInit {
     this.dialog.open(GenreDialogComponent, {
       data: { Name, Description }
     })
+  }
+
+  openDirectorDialog(Name: string, Bio: string, Age: string): void {
+    this.dialog.open(DirectorDialogComponent, {
+      data: { Name, Bio, Age },
+    })
+  }
+
+  openMovieDetailsDialog(): void {
+    this.dialog.open(MovieDetailsDialogComponent)
   }
 
 }
