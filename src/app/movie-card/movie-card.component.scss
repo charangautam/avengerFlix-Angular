@@ -1,9 +1,32 @@
 .home-page {
     display: flex; 
-    padding: 20px;
+    flex-wrap: wrap;
+    padding: 26px;
+}
+
+mat-card {
+    flex: 1 1 auto;
+    margin: 7px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+}
+
+mat-card-title {
+    font-family: 'Acme', sans-serif;
 }
 
 img {
     width: 300px;
     height: 470px;
+}
+
+@media screen and (max-width: 840px) {
+    mat-card {
+        max-width: 300px;
+    }
+
+    img {
+        width: 250px;
+        height: 370px;
+    }
 }

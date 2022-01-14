@@ -1,3 +1,19 @@
 mat-card {
     max-width: 300px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+mat-card-title {
+    font-family: 'Acme', sans-serif;
+}
+
+.mat-card-content {
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 840px) {
+    mat-card {
+        max-width: 200px;
+    }
 }
