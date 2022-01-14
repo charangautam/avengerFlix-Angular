@@ -19,14 +19,17 @@ import { DetailsDialogComponent } from '../details-dialog/details-dialog.compone
 export class MovieCardComponent implements OnInit {
 
   movies: any[] = [];
+  favorited: any[] = []
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.getMovies()
+    this.getFavorites()
   }
 
   getMovies(): void {
@@ -55,4 +58,42 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  getFavorites(): void {
+    const user = localStorage.getItem('user');
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.favorited = resp.FavoriteMovies;
+      console.log(this.favorited);
+      return this.favorited;
+    });
+  }
+
+  addFavMovie(movieId: string): void {
+    this.fetchApiData.addFavoriteMovies(movieId).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open(`Successfully added to your favorites list`, 'OK', {
+        duration: 4000,
+      });
+      this.getFavorites()
+      this.ngOnInit();
+    });
+  }
+
+  removeFavMovie(movieId: string): void {
+    this.fetchApiData.deleteMovie(movieId).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open(`Successfully removed from your favorites list`, 'OK', {
+        duration: 4000,
+      });
+      this.getFavorites()
+      this.ngOnInit();
+    });
+  }
+
+  inFavorited(movieId: string): boolean {
+    if (this.favorited.includes(movieId)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

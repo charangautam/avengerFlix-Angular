@@ -1,1 +1,9 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+<div class="profile-div">
+    <div>
+        <h2>Favorited Movies</h2>
+        <div *ngFor="let title of favoritedTitle;">
+            <h4>{{title}}</h4>
+        </div>
+    </div>
+</div>
