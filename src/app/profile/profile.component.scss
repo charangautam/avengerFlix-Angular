@@ -1,5 +1,12 @@
 .profile-div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+mat-card {
+    max-width: 400px;
+    margin-bottom: 10px;
 }
