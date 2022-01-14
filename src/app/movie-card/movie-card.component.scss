@@ -2,6 +2,7 @@
     display: flex; 
     flex-wrap: wrap;
     padding: 26px;
+    justify-content: center;
 }
 
 mat-card {
@@ -22,7 +23,7 @@ img {
 
 @media screen and (max-width: 840px) {
     mat-card {
-        max-width: 300px;
+        max-width: 350px;
     }
 
     img {
