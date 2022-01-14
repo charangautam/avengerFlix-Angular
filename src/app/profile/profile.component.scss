@@ -16,7 +16,7 @@
 
 h2 {
     font-family: 'Acme', sans-serif;
-    font-size: 34px;
+    font-size: 30px;
 }
 
 li {
@@ -25,7 +25,7 @@ li {
 
 .details-div {
     max-width: 400px;
-    background-color: #F6F2D4;
+    background-color: #E1E8EB;
     padding: 16px;
     border-radius: 20px;
     font-size: 17px;
@@ -33,7 +33,7 @@ li {
 }
 
 mat-card {
-    background-color: #FEE3EC;
+    background-color: #EEEBDD;
     font-family: 'Acme', sans-serif;
     max-width: 400px;
     margin-top: 20px;
@@ -47,4 +47,30 @@ mat-card-content {
 
 input {
     font-size: 17px;
+}
+
+@media screen and (max-width: 900px) {
+    .profile-div {
+        flex-direction: column;
+    }
+
+    .favorited-div {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    li {
+        font-size: 18px;
+    }
+
+    .details-div {
+        font-size: 15px;
+    }
+
+    input {
+        font-size: 15px;
+    }
 }
