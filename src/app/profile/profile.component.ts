@@ -10,24 +10,40 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProfileComponent implements OnInit {
 
+  // empty states that gets populated in functions
   movies: any[] = []
   favorited: any[] = []
   favoritedTitle: any = []
   user: any = {}
 
+  /**
+   * Binds input values to userData object
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' }
 
+  /**
+   * Called when creating an instance of the class
+   * @param fetchApiData 
+   * @param snackBar 
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar
   ) { }
 
+  /**
+   * Initializes the component
+   */
   ngOnInit(): void {
     this.getUser()
     this.getMovies()
     this.getFavorites()
   }
 
+  /**
+   * Retrieves all movies from database
+   * @returns the movies state which is an array including all the movies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -36,6 +52,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Retrieves the logged in user's favorited movies
+   * @returns filterFavorites() function which filters the favorited movies
+   */
   getFavorites(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -45,6 +65,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Filters the logged in user's favorited movies against all movies
+   * @returns the favoritedTitle state which includes the titles of all favorited movies
+   */
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.favorited.includes(movie._id)) {
@@ -55,6 +79,10 @@ export class ProfileComponent implements OnInit {
     return this.favoritedTitle;
   }
 
+  /**
+   * Get user info of the logged in user
+   * @returns the user state which includes the info of the logged in user
+   */
   getUser(): void {
     const user = localStorage.getItem('user')
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -63,6 +91,10 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  /**
+  * Updates info of the logged in user
+  * @returns alert indicating a successful update or an error
+  */
   editUserInfo(): void {
     const updatedData = {
       Username: this.userData.Username ? this.userData.Username : this.user.Username,

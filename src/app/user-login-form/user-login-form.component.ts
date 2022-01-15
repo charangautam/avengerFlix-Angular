@@ -17,15 +17,19 @@ import { Router } from '@angular/router';
 
 export class UserLoginFormComponent implements OnInit {
 
+  /**
+  * Binds input values to userData object
+  */
   @Input() userData = { Username: '', Password: '' }
 
-  /**
-  * * Called when creating an instance of the class
-  * @param fetchApiData
-  * @param dialogRef
-  * @param snackBar
- */
 
+  /**
+    * Called when creating an instance of the class
+    * @param fetchApiData 
+    * @param dialogRef 
+    * @param snackBar 
+    * @param router 
+    */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -33,16 +37,18 @@ export class UserLoginFormComponent implements OnInit {
     private router: Router
   ) { }
 
+  /**
+   * Initializes the component
+   */
   ngOnInit(): void {
   }
 
 
   // This is the function responsible for sending the form inputs to the backend
   /**
-   * Function for sending the form inputs to the backend to create a new user
+   * Function for sending the form inputs to the backend to login user
    * @returns alert indicating a successful login or an error
-  */
-
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       // set user and token to local storage
