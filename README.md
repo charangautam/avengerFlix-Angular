@@ -1,6 +1,8 @@
-## Objective ##
+# AvengersFlix (Angular) #
+https://charangautam.github.io/avengersFlix-Angular/
 
-Using Angular, build the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
+## Objective ##
+Using Angular, build the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation. Backend was built using MongoDB, ExpressJS and NodeJS.
 
 ## User Stories ##
 - As a user, I want to be able to receive information on movies, directors, and genres so that I
